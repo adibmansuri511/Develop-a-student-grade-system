@@ -27,44 +27,45 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <div class="col-md-10">
-                                    <form action="" method="get">
+                                    <form method="get">
                                         <div class="row mt-5">
                                             <label class="col-md-4 d-flex justify-content-end align-items-center"
                                                 for="phyMarks">Physics
                                                 :</label>
-                                            <input class="col-md-6" type="number" name="physics-marks" id="phyMarks">
+                                            <input class="col-md-6" type="number" name="physics-marks" id="phyMarks"
+                                                min="0" max="100" required>
                                             <div class="col-md-2"></div>
                                         </div>
                                         <div class="row mt-3">
                                             <label class="col-md-4 d-flex justify-content-end align-items-center"
                                                 for="mathMarks">Maths
                                                 :</label>
-                                            <input class="col-md-6" type="number" name="maths-marks" id="mathMarks">
+                                            <input class="col-md-6" type="number" name="maths-marks" id="mathMarks"
+                                                min="0" max="100" required>
                                             <div class="col-md-2"></div>
                                         </div>
                                         <div class="row mt-3">
                                             <label class="col-md-4 d-flex justify-content-end align-items-center"
                                                 for="chemMarks">Chemistry
                                                 :</label>
-                                            <input class="col-md-6" type="number" name="chemistry-marks" id="chemMarks">
+                                            <input class="col-md-6" type="number" name="chemistry-marks" id="chemMarks"
+                                                min="0" max="100" required>
                                             <div class="col-md-2"></div>
                                         </div>
                                         <div class="row mt-3">
                                             <label class="col-md-4 d-flex justify-content-end align-items-center"
                                                 for="engMarks">English
                                                 :</label>
-                                            <input class="col-md-6" type="number" name="english-marks" id="engMarks">
+                                            <input class="col-md-6" type="number" name="english-marks" id="engMarks"
+                                                min="0" max="100" required>
                                             <div class="col-md-2"></div>
                                         </div>
                                         <div class="text-center mt-5">
-                                            <button type="submit">Show Percentage</button>
+                                            <button id="myBtn" type="button">Show Percentage</button>
                                         </div>
                                     </form>
                                     <div class="result-show mt-4">
-                                        <p>
-                                            Out of 400, your total grade is 280 and percentage is 70.00%. Your grade is
-                                            B. You Passed.
-                                        </p>
+                                        <p id="showData"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-1"></div>
