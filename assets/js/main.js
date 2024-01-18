@@ -24,10 +24,9 @@ const calculate = () => {
 
         console.log(`Total Score is ${scoreTotal} out of 400.`)
 
-        // Checking the condition for the providing the  
-        // grade to student based on percentage 
-        let percentage = (scoreTotal / 400) * 100;
-        percentage = Math.floor(percentage);
+        // Checking the condition for the providing the grade to student based on percentage
+
+        const percentage = Math.floor((scoreTotal / 400) * 100);
 
         console.log(`Student Percentage is ${percentage}%`);
 
@@ -51,16 +50,43 @@ const calculate = () => {
 
 
         // Checking the condition for the fail and pass 
-        if (percentage >= 33) {
-            showData.innerHTML = `Out of 400 your total is ${scoreTotal} and percentage is ${percentage}%.<br> Your grade is ${grades}. You are Pass.`;
-        } else {
-            showData.innerHTML = `Out of 400 your total is  ${scoreTotal} and percentage is ${percentage}%.<br> Your grade is ${grades}. You are Fail.`;
+        if (physics < 33 || maths < 33 || chemistry < 33 || english < 33) {
+
+            // showData.innerHTML = `Out of 400 your total is  ${scoreTotal} and percentage is ${percentage}%.<br> Your grade is ${grades}. You are Fail.`;
+
+            if (physics < 33) {
+
+                showData.innerHTML = `Out of 400 your total is  ${scoreTotal} and percentage is ${percentage}%.<br> Your grade is ${grades}. You are failed in Physics subject.`;
+
+            }
+
+            else if (maths < 33) {
+                showData.innerHTML = `Out of 400 your total is  ${scoreTotal} and percentage is ${percentage}%.<br> Your grade is ${grades}. You are failed in Maths subject.`;
+            }
+
+            else if (chemistry < 33) {
+                showData.innerHTML = `Out of 400 your total is  ${scoreTotal} and percentage is ${percentage}%.<br> Your grade is ${grades}. You are failed in Chemistry subject.`;
+            }
+
+            else if (english < 33) {
+                showData.innerHTML = `Out of 400 your total is  ${scoreTotal} and percentage is ${percentage}%.<br> Your grade is ${grades}. You are failed in English subject.`;
+            }
+
         }
+
+
+        else {
+
+            showData.innerHTML = `Out of 400 your total is ${scoreTotal} and percentage is ${percentage}%.<br> Your grade is ${grades}. You are Pass.`;
+
+        }
+
+
     }
 
     else {
-        showData.innerHTML = `Enter proper marks or submit all the field.`;
-        console.log(`Enter proper marks or submit all the field.`)
+        showData.innerHTML = `Please enter proper marks or submit all the field.`;
+        console.log(`Please enter proper marks or submit all the field.`)
     }
 
 }
