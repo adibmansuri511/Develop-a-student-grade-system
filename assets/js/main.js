@@ -1,17 +1,21 @@
 // Program to develop a student grade system.
 
-const element = document.getElementById("myBtn");
+const myBtn = document.getElementById("myBtn");
 
-const calculate = () => {
-    // e.preventDefault();
+
+const calculate = (e) => {
+    e.preventDefault();
 
     // Getting the all subjects marks from user through input. 
-    const physics = parseInt(document.getElementById("phyMarks").value);
-    const maths = parseInt(document.getElementById("mathMarks").value);
-    const chemistry = parseInt(document.getElementById("chemMarks").value);
-    const english = parseInt(document.getElementById("engMarks").value);
-    let grades = "";
+    const physics = Number(document.getElementById("phyMarks").value);
+    const maths = Number(document.getElementById("mathMarks").value);
+    const chemistry = Number(document.getElementById("chemMarks").value);
+    const english = Number(document.getElementById("engMarks").value);
+
     let showData = document.querySelector("#showData");
+    let grades = "";
+    let output = '';
+
 
     if (physics <= 100 && physics >= 0 && maths <= 100 && maths >= 0 && chemistry <= 100 && chemistry >= 0 && english <= 100 && english >= 0) {
         console.log(`Physics marks is ${physics} out of 100.`);
@@ -49,39 +53,57 @@ const calculate = () => {
         }
 
 
+        // Check the student is fail in particular subject or more than one subjects.
+
+        let phyFail = "";
+        let mathFail = "";
+        let cheFail = "";
+        let engFail = "";
+
+        if (physics < 33) {
+            phyFail = true;
+        }
+
+        if (maths < 33) {
+            mathFail = true;
+        }
+
+        if (chemistry < 33) {
+            cheFail = true;
+        }
+
+        if (english < 33) {
+            engFail = true;
+        }
+
+
+        output = `${phyFail ? ', Physics' : ''} ${mathFail ? ', Maths' : ''} ${cheFail ? ', Chemistry' : ''} ${engFail ? ', English' : ''} failed in this subject.`
+
+
         // Checking the condition for the fail and pass 
         if (physics < 33 || maths < 33 || chemistry < 33 || english < 33) {
 
-            // showData.innerHTML = `Out of 400 your total is  ${scoreTotal} and percentage is ${percentage}%.<br> Your grade is ${grades}. You are Fail.`;
-
             if (physics < 33) {
-
-                showData.innerHTML = `Out of 400 your total is  ${scoreTotal} and percentage is ${percentage}%.<br> Your grade is ${grades}. You are failed in Physics subject.`;
-
+                showData.innerHTML = `Out of 400 your total is  ${scoreTotal} and percentage is ${percentage}%, Your grade is ${grades} ${output}`;
             }
 
             else if (maths < 33) {
-                showData.innerHTML = `Out of 400 your total is  ${scoreTotal} and percentage is ${percentage}%.<br> Your grade is ${grades}. You are failed in Maths subject.`;
+                showData.innerHTML = `Out of 400 your total is  ${scoreTotal} and percentage is ${percentage}%, Your grade is ${grades} ${output}`;
             }
 
             else if (chemistry < 33) {
-                showData.innerHTML = `Out of 400 your total is  ${scoreTotal} and percentage is ${percentage}%.<br> Your grade is ${grades}. You are failed in Chemistry subject.`;
+                showData.innerHTML = `Out of 400 your total is  ${scoreTotal} and percentage is ${percentage}%, Your grade is ${grades} ${output}`;
             }
 
             else if (english < 33) {
-                showData.innerHTML = `Out of 400 your total is  ${scoreTotal} and percentage is ${percentage}%.<br> Your grade is ${grades}. You are failed in English subject.`;
+                showData.innerHTML = `Out of 400 your total is  ${scoreTotal} and percentage is ${percentage}%, Your grade is ${grades} ${output}`;
             }
 
         }
 
-
         else {
-
-            showData.innerHTML = `Out of 400 your total is ${scoreTotal} and percentage is ${percentage}%.<br> Your grade is ${grades}. You are Pass.`;
-
+            showData.innerHTML = `Out of 400 your total is ${scoreTotal} and percentage is ${percentage}%, Your grade is ${grades}. You are pass in all subjects.`;
         }
-
-
     }
 
     else {
@@ -91,4 +113,4 @@ const calculate = () => {
 
 }
 
-element.addEventListener("click", calculate);
+myBtn.addEventListener("click", calculate);
